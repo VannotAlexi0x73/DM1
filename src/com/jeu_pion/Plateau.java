@@ -7,9 +7,9 @@ public class Plateau {
     private int colonne;
 
     /**
-     * TODO
-     * @param i
-     * @param j
+     * Permet de créer une matrice : String de taille [i][j]
+     * @param i : nombre de ligne de la matrice à créer
+     * @param j : nombre de colonne de la matrice à créer
      */
     public Plateau(int i, int j)
     {
@@ -22,7 +22,9 @@ public class Plateau {
     }
 
     /**
-     * TODO
+     * Permet d'afficher la matrice sous forme de pseudo tableau en ligne de commande
+     * La première et deuxième ligne correspondent aux numéros des colonnes
+     * Les premiers chiffres de chaque lignes correspondent aux numéros des lignes
      */
     public void AfficherPlateau()
     {
@@ -83,11 +85,11 @@ public class Plateau {
     }
 
     /**
-     * TODO
-     * @param i : It's the matrix line number
-     * @param j : It's the matrix column number
-     * @param valeur : It's the value to add to the matrix
-     * @return : -1 Error code / 1 No error
+     * Permet de modifier la matrice en y insérant une valeur aux indexes [i][j]
+     * @param i : numéro de la ligne à modifier
+     * @param j : numéro de la colonne à modifier
+     * @param valeur : valeur à ajouter à la matrice aux coordonnées [i][j]
+     * @return : Code erreur si problème sinon @return 1
      */
     public int ModifierMatrice(int i, int j, String valeur)
     {
@@ -104,10 +106,10 @@ public class Plateau {
     }
 
     /**
-     * TODO
-     * @param i : It's the matrix line number
-     * @param j : It's the matrix column number
-     * @return TODO
+     * Permet d'obtenir la valeur enregistrer dans la matrice aux coordonnées [i][j]
+     * @param i : numéro de la ligne de la valeur à récupérer
+     * @param j : numéro de la colonne de la valeur à récupérer
+     * @return valeur aux coordonnées [i][j]
      */
     public String ObtenirValeurMatrice(int i, int j)
     {
