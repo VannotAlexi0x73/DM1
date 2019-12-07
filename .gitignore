@@ -69,3 +69,9 @@ fabric.properties
 
 # MacOS folder
 .DS_store
+/bin/
+
+
+# File from Eclipse
+.classpath
+.project
