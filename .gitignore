@@ -69,3 +69,7 @@ fabric.properties
 
 # MacOS folder
 .DS_store
+/bin/
+
+.classpath
+.project
