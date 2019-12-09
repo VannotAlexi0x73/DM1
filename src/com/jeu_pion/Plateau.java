@@ -2,6 +2,9 @@ package com.jeu_pion;
 
 public class Plateau {
 
+    private final int maxLigne = 15;
+    private final int maxColonne = 15;
+
     private String matrice [][];
     private int ligne;
     private int colonne;
@@ -93,7 +96,7 @@ public class Plateau {
      */
     public int ModifierMatrice(int i, int j, String valeur)
     {
-       if ((i >= 0) && (j >= 0))
+       if ((i >= 0) && (j >= 0) && (i < this.colonne ) && (j < this.ligne))
        {
 
            this.matrice[i][j] = valeur;
