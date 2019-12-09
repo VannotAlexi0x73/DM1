@@ -1,7 +1,5 @@
 package com.jeu_pion;
 
-import Jeu.Joueur;
-
 abstract class Jeu {
 	
 	abstract void initialisation (int i, int j);
