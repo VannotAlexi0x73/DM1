@@ -29,9 +29,9 @@ public class Plateau {
      * La première et deuxième ligne correspondent aux numéros des colonnes
      * Les premiers chiffres de chaque lignes correspondent aux numéros des lignes
      */
-    public void AfficherPlateau()
+    public void afficherPlateau()
     {
-        // First line display
+        // Affichage première ligne
         System.out.print("\n   ");
         for (int i = 0; i < this.colonne; i++)
         {
@@ -44,14 +44,14 @@ public class Plateau {
             }
         }
 
-        // Second line display
+        // Affichage deuxième migne
         System.out.print("\n   ");
         for (int i = 0; i < this.colonne; i++)
         {
             System.out.print(" " + i % 10 + "  ");
         }
 
-        // Third line display
+        // Affichage troisième ligne
         System.out.print("\n   ");
         for (int i = 0; i < this.colonne; i++)
         {
@@ -60,7 +60,7 @@ public class Plateau {
 
 
         System.out.println();
-        // Matrix display
+        // Affichage du tableau
         for (int i = 0; i < this.ligne; i++)
         {
             System.out.printf("%2d|", i);
@@ -79,7 +79,7 @@ public class Plateau {
             System.out.print("\n");
         }
 
-        // Last line display
+        // Affichage de la derniere ligne
         System.out.print("   ");
         for (int i = 0; i < this.colonne; i++)
         {
@@ -92,13 +92,12 @@ public class Plateau {
      * @param i : numéro de la ligne à modifier
      * @param j : numéro de la colonne à modifier
      * @param valeur : valeur à ajouter à la matrice aux coordonnées [i][j]
-     * @return : Code erreur si problème sinon @return 1
+     * @return : -1 si erreur sinon 1
      */
-    public int ModifierMatrice(int i, int j, String valeur)
+    public int modifierMatricePlateau(int i, int j, String valeur)
     {
        if ((i >= 0) && (j >= 0) && (i < this.colonne ) && (j < this.ligne))
        {
-
            this.matrice[i][j] = valeur;
            return 1;
        }
@@ -112,17 +111,17 @@ public class Plateau {
      * Permet d'obtenir la valeur enregistrer dans la matrice aux coordonnées [i][j]
      * @param i : numéro de la ligne de la valeur à récupérer
      * @param j : numéro de la colonne de la valeur à récupérer
-     * @return valeur aux coordonnées [i][j]
+     * @return : "error" si erreur sinon valeur aux coordonnées [i][j]
      */
-    public String ObtenirValeurMatrice(int i, int j)
+    public String obtenirValeurMatricePlateau(int i, int j)
     {
-        if (i >= 0 && j >= 0)
+        if ((i >= 0) && (j >= 0) && (i <= this.colonne) && (j <= this.ligne))
         {
             return this.matrice[i][j];
         }
         else
         {
-            return "e";
+            return "error";
         }
     }
 }

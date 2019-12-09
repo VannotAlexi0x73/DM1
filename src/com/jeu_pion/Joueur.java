@@ -14,13 +14,13 @@ public class Joueur {
      * Permet de changer le prénom d'un Joueur
      * @param prenom : nouveau prénom du Joueur
      */
-    public void EnregistrerPrenom(String prenom) { this.prenom = prenom; }
+    public void modifierPrenom(String prenom) { this.prenom = prenom; }
 
     /**
      * Méthode qui enregistre le caractère que le Joueur a choisi pour ses "pions"
      * @param caractere : caractère choisi par le Joueur
      */
-    public void EnregistrerCaractere(String caractere) { this.caractere = caractere; }
+    public void enregistrerCaractere(String caractere) { this.caractere = caractere; }
 
     /**
      * Permet d'obtenir le prénom du Joueur

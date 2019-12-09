@@ -17,5 +17,13 @@ public class Main {
 //        test.ModifierMatrice(3, 8, "O");
 //        test.ModifierMatrice(2, 5, "X");
         test.AfficherPlateau();
+        String i = test.ObtenirValeurMatrice(-1, -1);
+        System.out.print("test" + i);
+
+        Joueur toto[] = new Joueur[4];
+        toto[0] = new Joueur("coycou");
+        toto[1] = new Joueur("coycou");
+        toto[2] = new Joueur("coycou");
+        toto[3] = new Joueur("coycou");
     }
 }
