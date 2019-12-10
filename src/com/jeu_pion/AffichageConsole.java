@@ -29,8 +29,7 @@ public class AffichageConsole implements Affichable {
         {
             if (i % 5 == 0)
             {
-                str = "";
-                str = str.format(" %d  ", i / 10);
+                str = String.format(" %d  ", i / 10);
                 affichageElement(str);
             }
             else {
@@ -42,8 +41,7 @@ public class AffichageConsole implements Affichable {
         affichageElement(displaySpaces);
         for (int i = 0; i < plateau.getColonneMatricePlateau(); i++)
         {
-            str = "";
-            str = str.format(" %d  ", i % 10);
+            str = String.format(" %d  ", i % 10);
             affichageElement(str);
         }
 
@@ -59,15 +57,13 @@ public class AffichageConsole implements Affichable {
         // Affichage du tableau
         for (int i = 0; i < plateau.getLigneMatricePlateau(); i++)
         {
-            str = "";
-            str = str.format("%2d|", i);
+            str = String.format("%2d|", i);
             affichageElement(str);
             for (int j = 0; j < plateau.getColonneMatricePlateau(); j++)
             {
                 if (plateau.obtenirValeurMatricePlateau(i, j) != null)
                 {
-                    str = "";
-                    str = str.format(" %s ", plateau.obtenirValeurMatricePlateau(i, j));
+                    str = String.format(" %s ", plateau.obtenirValeurMatricePlateau(i, j));
                     affichageElement(str);
                 }
                 else
