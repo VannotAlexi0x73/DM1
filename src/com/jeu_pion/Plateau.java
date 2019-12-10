@@ -6,6 +6,7 @@ public class Plateau {
     private int ligne;
     private int colonne;
 
+
     /**
      * Permet de créer une matrice : String de taille [i][j]
      * @param i : nombre de ligne de la matrice à créer
@@ -20,6 +21,7 @@ public class Plateau {
             this.colonne = j;
         }
     }
+
 
     /**
      * Permet d'afficher la matrice sous forme de pseudo tableau en ligne de commande
@@ -86,6 +88,7 @@ public class Plateau {
         }
     }
 
+
     /**
      * Permet de modifier la matrice en y insérant une valeur aux indexes [i][j]
      * @param i : numéro de la ligne à modifier
@@ -105,6 +108,7 @@ public class Plateau {
            return -1;
        }
     }
+
 
     /**
      * Permet d'obtenir la valeur enregistrer dans la matrice aux coordonnées [i][j]
@@ -149,8 +153,7 @@ public class Plateau {
      * Permet d'obtenir le nombre de ligne de la matrice du plateau de jeu
      * @return le nombre de ligne de la matrice
      */
-    public int getLigneMatricePlateau()
-    {
+    public int getLigneMatricePlateau() {
         return this.ligne;
     }
 
@@ -159,8 +162,7 @@ public class Plateau {
      * Permet d'obtenir le nombre de colonne de la matrice du plateau de jeu
      * @return le nombre de colonne de la matrice
      */
-    public int getColonneMatricePlateau()
-    {
+    public int getColonneMatricePlateau() {
         return this.colonne;
     }
 }
