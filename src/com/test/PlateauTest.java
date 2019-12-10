@@ -22,16 +22,12 @@ public class PlateauTest {
     }
 
     @Test
-    public void afficherPlateau() {
-        p.afficherPlateau();
-    }
-
-    @Test
     public void modifierMatricePlateau() {
         assertTrue(p.modifierMatricePlateau(3, 3, "m") == 1);
         assertTrue(p.modifierMatricePlateau(6, 2, "Z") == 1);
         assertFalse(p.modifierMatricePlateau(6, -2, "Z") == 1);
-        assertTrue(p.modifierMatricePlateau(6, -2, "Z") == -1);
+        assertTrue(p.modifierMatricePlateau(-6, -2, "Z") == -1);
+        assertTrue(p.modifierMatricePlateau(-6, 2, "Z") == -1);
     }
 
     @Test

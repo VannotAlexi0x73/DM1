@@ -9,7 +9,8 @@ public class Joueur {
      * Permet de créer un Joueur en renseignant directement son prénom
      * @param prenom : prénom du Joueur
      */
-    public Joueur(String prenom, String caractere) {
+    public Joueur(String prenom, String caractere)
+    {
         this.prenom = prenom;
         this.caractere = caractere;
     }
