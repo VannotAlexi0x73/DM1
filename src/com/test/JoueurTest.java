@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class JoueurTest {
 
-    static Joueur j;
+    private static Joueur j;
 
     @Before
     public void setUp() throws Exception {
@@ -18,24 +18,24 @@ public class JoueurTest {
     @Test
     public void setPrenom() {
         j.setPrenom("Paul");
-        assertTrue(j.getPrenom() == "Paul");
+        assertEquals("Paul", j.getPrenom());
     }
 
     @Test
     public void setCaractere() {
         j.setCaractere("R");
-        assertTrue(j.getCaractere() == "R");
+        assertEquals("R", j.getCaractere());
     }
 
     @Test
     public void getPrenom() {
         j.setPrenom("Patrick");
-        assertTrue(j.getPrenom() == "Patrick");
+        assertEquals("Patrick", j.getPrenom());
     }
 
     @Test
     public void getCaractere() {
         j.setCaractere("J");
-        assertTrue(j.getCaractere() == "J");
+        assertEquals("J", j.getCaractere());
     }
 }
