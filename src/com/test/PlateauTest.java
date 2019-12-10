@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class PlateauTest {
 
-    static Plateau p;
+    private static Plateau p;
 
     @Before
     public void setUp() throws Exception {
@@ -23,35 +23,35 @@ public class PlateauTest {
 
     @Test
     public void modifierMatricePlateau() {
-        assertTrue(p.modifierMatricePlateau(3, 3, "m") == 1);
-        assertTrue(p.modifierMatricePlateau(6, 2, "Z") == 1);
-        assertFalse(p.modifierMatricePlateau(6, -2, "Z") == 1);
-        assertTrue(p.modifierMatricePlateau(-6, -2, "Z") == -1);
-        assertTrue(p.modifierMatricePlateau(-6, 2, "Z") == -1);
+        assertEquals(1, p.modifierMatricePlateau(3, 3, "m"));
+        assertEquals(1, p.modifierMatricePlateau(6, 2, "Z"));
+        assertNotEquals(1, p.modifierMatricePlateau(6, -2, "Z"));
+        assertEquals(-1, p.modifierMatricePlateau(-6, -2, "Z"));
+        assertEquals(-1, p.modifierMatricePlateau(-6, 2, "Z"));
     }
 
     @Test
     public void obtenirValeurMatricePlateau() {
-        assertTrue(p.obtenirValeurMatricePlateau(1, 1) == "C");
+        assertSame("C", p.obtenirValeurMatricePlateau(1, 1));
         p.modifierMatricePlateau(8, 5, "K");
-        assertTrue(p.obtenirValeurMatricePlateau(8, 5) == "K");
-        assertTrue(p.obtenirValeurMatricePlateau(8, -5) == "error");
+        assertSame("K", p.obtenirValeurMatricePlateau(8, 5));
+        assertSame("error", p.obtenirValeurMatricePlateau(8, -5));
     }
 
     @Test
     public void isMatricePlateauComplete() {
-        assertTrue(!p.isMatricePlateauComplete());
+        assertFalse(p.isMatricePlateauComplete());
         p.modifierMatricePlateau(9, 9, "C");
         assertTrue(p.isMatricePlateauComplete());
     }
 
     @Test
     public void getLigneMatricePlateau() {
-        assertTrue(p.getLigneMatricePlateau() == 10);
+        assertEquals(10, p.getLigneMatricePlateau());
     }
 
     @Test
     public void getColonneMatricePlateau() {
-        assertTrue(p.getColonneMatricePlateau() == 10);
+        assertEquals(10, p.getColonneMatricePlateau());
     }
 }

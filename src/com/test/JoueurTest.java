@@ -18,24 +18,24 @@ public class JoueurTest {
     @Test
     public void setPrenom() {
         j.setPrenom("Paul");
-        assertEquals("Paul", j.getPrenom());
+        assertSame("Paul", j.getPrenom());
     }
 
     @Test
     public void setCaractere() {
         j.setCaractere("R");
-        assertEquals("R", j.getCaractere());
+        assertSame("R", j.getCaractere());
     }
 
     @Test
     public void getPrenom() {
         j.setPrenom("Patrick");
-        assertEquals("Patrick", j.getPrenom());
+        assertSame("Patrick", j.getPrenom());
     }
 
     @Test
     public void getCaractere() {
         j.setCaractere("J");
-        assertEquals("J", j.getCaractere());
+        assertSame("J", j.getCaractere());
     }
 }
