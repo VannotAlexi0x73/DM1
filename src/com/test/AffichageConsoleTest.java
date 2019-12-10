@@ -10,9 +10,9 @@ import static org.junit.Assert.*;
 
 public class AffichageConsoleTest {
 
-    static Plateau p;
-    static String str;
-    static Affichable affichable = new AffichageConsole();
+    private static Plateau p;
+    private static String str;
+    private static Affichable affichable = new AffichageConsole();
 
 
     @Before
