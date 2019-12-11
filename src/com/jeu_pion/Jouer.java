@@ -3,6 +3,11 @@ package com.jeu_pion;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe Jouer -> moteur de jeu du projet avec le main()
+ * @author : Alexis V.
+ * @version : 1.0
+ */
 public class Jouer {
 
     /**
@@ -12,7 +17,7 @@ public class Jouer {
      * et pour la création du jeu -> switch (choixJeu) l.52
      */
     public static void main (String[] args) {
-        // A compléter avec le nom des futurs jeux possible
+        // A compléter avec le nom des futurs jeux possibles
         String [] listeJeux = {
                 "Morpion",
                 "Puissance 4",
@@ -35,14 +40,14 @@ public class Jouer {
 
         do {
 
-            // Choix du jeu auquel l'utilissateur souhaite jouer
+            // Choix du jeu auquel l'utilisateur souhaite jouer
             do {
                 str = "";
                 for (int i = 0; i < listeJeux.length; i++)
                 {
                     str += String.format("%d - %s%n", i+1, listeJeux[i]);
                 }
-                str += String.format("Veuillez saisir le numéro du jeu auquel vous voulez jouer : ");
+                str += "Veuillez saisir le numéro du jeu auquel vous voulez jouer : ";
                 Jeu.affichable.affichageElement(str);
                 choixJeu = scanner.nextInt();
                 scanner.nextLine();
@@ -65,13 +70,13 @@ public class Jouer {
 
             // Demande du nombre de joueurs qui vont jouer au jeu
             do {
-                Jeu.affichable.affichageElement("Veuillez saisir le nombre de joueur qui vont jouer : ");
+                Jeu.affichable.affichageElement("Veuillez saisir le nombre de joueurs qui vont jouer : ");
                 nbrJoueur = scanner.nextInt();
                 scanner.nextLine();
             } while (nbrJoueur <= 0);
 
 
-            // Création de la liste des joueurs et de la liste des caractère
+            // Création de la liste des joueurs et de la liste des caractères
             // des joueurs pour vérifier si un caractère n'est pas présent 2 fois
             jeu.listeJoueurs = new Joueur[nbrJoueur];
             listCaractere = new ArrayList<>(nbrJoueur);
@@ -101,8 +106,6 @@ public class Jouer {
 
             Jeu.affichable.affichagePlateau(jeu.plateau);
 
-            System.out.println("nbreeeee" +jeu.listeJoueurs.length);
-
             // Moteur de jeu
             for (int i = 0; i < jeu.listeJoueurs.length ; i++)
             {
@@ -112,7 +115,7 @@ public class Jouer {
                 // On vérifie le résultat de vérification et on break; la boucle
                 if (resultatVerification == 1)
                 {
-                    str = String.format("%n%n◊◊◊◊◊◊◊◊ Le joueur %s a gagner ! ◊◊◊◊◊◊◊◊", jeu.listeJoueurs[i].getPrenom());
+                    str = String.format("%n%n◊◊◊◊◊◊◊◊ Le joueur %s a gagné ! ◊◊◊◊◊◊◊◊", jeu.listeJoueurs[i].getPrenom());
                     Jeu.affichable.affichageElement(str);
                     break;
                 }
@@ -127,14 +130,14 @@ public class Jouer {
                     Jeu.affichable.affichageElement(str);
                     break;
                 }
-                // Quand on arrive à la fin de la liste des joueurs on repart du début
+                // Quand on arrive à la fin de la liste des joueurs on repart au début
                 // on affecte donc -1 à i car dans le for i est incrémenté
                 if (i == jeu.listeJoueurs.length - 1) { i = -1; }
             }
 
             // Boucle pour demander si l'utilisateur veut rejouer à un jeu et si le résultat est correct
             do {
-                Jeu.affichable.affichageElement("\n\nVoulez-vous rejouter à un jeu ? (0 = Non / 1 = Oui) : ");
+                Jeu.affichable.affichageElement("\n\nVoulez-vous rejouer à un jeu ? (0 = Non / 1 = Oui) : ");
                 replay = scanner.nextInt();
                 scanner.nextLine();
             } while((replay != 0) && (replay != 1));

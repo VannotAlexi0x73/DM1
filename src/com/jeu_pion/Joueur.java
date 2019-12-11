@@ -1,13 +1,19 @@
 package com.jeu_pion;
 
+/**
+ * Classe Joueur
+ * @author : Alexis V.
+ * @version : 1.0
+ */
 public class Joueur {
     private String prenom;
     private String caractere;
 
 
     /**
-     * Permet de créer un Joueur en renseignant directement son prénom
-     * @param prenom : prénom du Joueur
+     * Permet de créer un joueur en renseignant directement son prénom et son caractère
+     * @param prenom : prénom du joueur
+     * @param caractere : caractère du joueur
      */
     public Joueur(String prenom, String caractere)
     {
@@ -17,8 +23,8 @@ public class Joueur {
 
 
     /**
-     * Permet de changer le prénom d'un Joueur
-     * @param prenom : nouveau prénom du Joueur
+     * Permet de changer le prénom du joueur passé en paramètre
+     * @param prenom : nouveau prénom du joueur
      */
     public void setPrenom(String prenom) {
         this.prenom = prenom;
@@ -36,7 +42,7 @@ public class Joueur {
 
     /**
      * Permet d'obtenir le prénom du Joueur
-     * @return : prénom du Joueur
+     * @return : prénom du joueur
      */
     public String getPrenom() {
         return this.prenom;
@@ -44,8 +50,8 @@ public class Joueur {
 
 
     /**
-     * Permet d'obtenir le caractère que le Joueur a choisi
-     * @return : caractère du Joueur
+     * Permet d'obtenir le caractère que le joueur a choisi
+     * @return : caractère du joueur
      */
     public String getCaractere() {
         return this.caractere;

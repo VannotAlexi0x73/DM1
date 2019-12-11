@@ -1,15 +1,21 @@
 package com.jeu_pion;
 
+/**
+ * Classe AffichageConsole
+ * @author : Alexis V
+ * @version : 1.0
+ */
 public class AffichageConsole implements Affichable {
 
     /**
-     * Permet d'afficher une chaine de caractère formater dans la console
-     * @param element : chaine de caractère à afficher en console
+     * Permet d'afficher une chaîne de caractères formatée dans la console
+     * @param element : chaîne de caractères à afficher en console
      */
     @Override
     public void affichageElement(String element) {
         System.out.print(element);
     }
+
 
     /**
      * Permet d'afficher la matrice sous forme de pseudo tableau dans la console
@@ -37,7 +43,7 @@ public class AffichageConsole implements Affichable {
             }
         }
 
-        // Affichage deuxième migne
+        // Affichage deuxième ligne
         affichageElement(displaySpaces);
         for (int i = 0; i < plateau.getColonneMatricePlateau(); i++)
         {
@@ -75,7 +81,7 @@ public class AffichageConsole implements Affichable {
             affichageElement("\n");
         }
 
-        // Affichage de la derniere ligne
+        // Affichage de la dernière ligne
         affichageElement("   ");
         for (int i = 0; i < plateau.getColonneMatricePlateau(); i++)
         {

@@ -1,5 +1,10 @@
 package com.jeu_pion;
 
+/**
+ * Classe Plateau
+ * @author : Alexis V
+ * @version : 1.0
+ */
 public class Plateau {
 
     private String [][] matrice;
@@ -9,8 +14,8 @@ public class Plateau {
 
     /**
      * Permet de créer une matrice : String de taille [i][j]
-     * @param i : numero de la ligne de la matrice à créer
-     * @param j : numero de la colonne de la matrice à créer
+     * @param i : nombre de ligne de la matrice à créer
+     * @param j : nombre de colonne de la matrice à créer
      */
     public Plateau(int i, int j)
     {
@@ -22,8 +27,9 @@ public class Plateau {
         }
     }
 
+
     /**
-     * Permet de modifier la matrice en y insérant une valeur aux indexes [i][j]
+     * Permet de modifier la matrice en y insérant une valeur à la position [i][j]
      * @param i : numéro de la ligne à modifier
      * @param j : numéro de la colonne à modifier
      * @param valeur : valeur à ajouter à la matrice aux coordonnées [i][j]
@@ -63,7 +69,7 @@ public class Plateau {
 
 
     /**
-     * Permet de vérifier si la matrice a été complètement utilisée ou pas
+     * Permet de vérifier si la matrice a été complètement utilisée ou non
      * @return true si la matrice est complète ou false s'il reste des cases disponibles
      */
     public Boolean isMatricePlateauComplete()
@@ -83,8 +89,8 @@ public class Plateau {
 
 
     /**
-     * Permet d'obtenir le nombre de ligne de la matrice du plateau de jeu
-     * @return le nombre de ligne de la matrice
+     * Permet d'obtenir le nombre de lignes du plateau
+     * @return le nombre de lignes du plateau
      */
     public int getLigneMatricePlateau() {
         return this.ligne;
@@ -92,8 +98,8 @@ public class Plateau {
 
 
     /**
-     * Permet d'obtenir le nombre de colonne de la matrice du plateau de jeu
-     * @return le nombre de colonne de la matrice
+     * Permet d'obtenir le nombre de colonnes du plateau
+     * @return le nombre de colonnes du plateau
      */
     public int getColonneMatricePlateau() {
         return this.colonne;
