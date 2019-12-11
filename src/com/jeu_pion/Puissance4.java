@@ -4,11 +4,8 @@ import java.util.Scanner;
 public class Puissance4 extends Jeu {
 	
 	private Scanner saisieUtilisateur = new Scanner(System.in);
-	private int x;
-	private int y;
 	
-	// Instanciation du plateau de jeu
-	public Puissance4 () {
+	public void initialisation() {
 		plateau = new Plateau(6, 7);
 	}
 	
@@ -19,7 +16,7 @@ public class Puissance4 extends Jeu {
         do 
         {
             System.out.println( joueur.getPrenom() + " à toi de jouer");
-            System.out.println("Choisi la colonne où lâcher la pièce : ");
+            System.out.println("Choisi la colonne où lâcher la pièce (0 à 6) : ");
             positionPion = scanner.nextInt();
         }
         while(gestionPosition(positionPion, joueur.getCaractere()) == false);
@@ -39,12 +36,12 @@ public class Puissance4 extends Jeu {
 				return true;
 
 			}else {
-				System.out.println( "La colonne est pleine");
+				System.out.println( "la colonne est pleine");
 				return false;
 			}
 		}
 		else {
-			System.out.println( "La colonne n'existe pas");
+			System.out.println( "la colonne n'existe pas");
 			return false;
 		}
 	}
@@ -84,21 +81,8 @@ public class Puissance4 extends Jeu {
 		
 		
 	}
-		
 	
 
-    public int getLigne() {
-        return this.x;
-    }
-
-    public int getColonne() {
-        return this.y;
-    }
-
-	@Override
-	void initialisation() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
+
+
