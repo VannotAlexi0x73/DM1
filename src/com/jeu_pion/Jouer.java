@@ -109,6 +109,7 @@ public class Jouer {
                 jeu.jouer(jeu.listeJoueurs[i]);
                 Jeu.affichable.affichagePlateau(jeu.plateau);
                 resultatVerification = jeu.verification(jeu.listeJoueurs[i]);
+                // On vérifie le résultat de vérification et on break; la boucle
                 if (resultatVerification == 1)
                 {
                     str = String.format("%n%n◊◊◊◊◊◊◊◊ Le joueur %s a gagner ! ◊◊◊◊◊◊◊◊", jeu.listeJoueurs[i].getPrenom());
@@ -118,6 +119,12 @@ public class Jouer {
                 else if (resultatVerification == 2)
                 {
                     Jeu.affichable.affichageElement("\n\nPersonne n'a gagné :'( ....");
+                    break;
+                }
+                else if (resultatVerification == 3)
+                {
+                    str = String.format("%n%n†††††††† Le joueur %s a perdu ! ††††††††", jeu.listeJoueurs[i].getPrenom());
+                    Jeu.affichable.affichageElement(str);
                     break;
                 }
                 // Quand on arrive à la fin de la liste des joueurs on repart du début
