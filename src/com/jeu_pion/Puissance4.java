@@ -28,14 +28,17 @@ public class Puissance4 extends Jeu {
 	public boolean gestionPosition(int position , String caractere) {
 		int i = 0;
 		if ((position>=0)&&(position< plateau.getColonneMatricePlateau())) {
-			if (plateau.obtenirValeurMatricePlateau(0,position) == null) {
+			if (plateau.obtenirValeurMatricePlateau(0,position) == null)&&(plateau.obtenirValeurMatricePlateau(1,position) == null) {
 				do {
 					i++;
 				}	while	(plateau.obtenirValeurMatricePlateau( i+1, position) == null);
 				plateau.modifierMatricePlateau(i, position, caractere);
 				return true;
 
-			}else {
+			}else if(plateau.obtenirValeurMatricePlateau(0,position) == null)&&(plateau.obtenirValeurMatricePlateau(1,position) != null){
+				plateau.modifierMatricePlateau(i, position, caractere);
+			}
+			else {
 				System.out.println( "la colonne est pleine");
 				return false;
 			}
