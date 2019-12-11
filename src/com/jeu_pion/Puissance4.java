@@ -15,8 +15,8 @@ public class Puissance4 extends Jeu {
 
         do 
         {
-            System.out.println( joueur.getPrenom() + " ‡ toi de jouer");
-            System.out.println("Choisi la colonne o˘ l‚cher la piËce (0 ‡ 6) : ");
+            System.out.println( joueur.getPrenom() + " ≈ï toi de jouer");
+            System.out.println("Choisi la colonne o≈Ø l√¢cher la piƒçce (0 ≈ï 6) : ");
             positionPion = scanner.nextInt();
         }
         while(gestionPosition(positionPion, joueur.getCaractere()) == false);
@@ -54,19 +54,19 @@ public class Puissance4 extends Jeu {
 		
 		for (int i = 0; i < plateau.getLigneMatricePlateau(); i++) {
 			for (int j = 0; j < plateau.getColonneMatricePlateau(); j++) {
-				if (	(plateau.obtenirValeurMatricePlateau(i, j-1) == car && plateau.obtenirValeurMatricePlateau(i, j-2) == car && plateau.obtenirValeurMatricePlateau(i, j-3) == car)
+				if (	(plateau.obtenirValeurMatricePlateau(i, j) == car) && (plateau.obtenirValeurMatricePlateau(i, j-1) == car && plateau.obtenirValeurMatricePlateau(i, j-2) == car && plateau.obtenirValeurMatricePlateau(i, j-3) == car)
 						||
-					(plateau.obtenirValeurMatricePlateau(i+1, j-1) == car && plateau.obtenirValeurMatricePlateau(i+2, j-2) == car && plateau.obtenirValeurMatricePlateau(i+3, j-3) == car)
+					(plateau.obtenirValeurMatricePlateau(i, j) == car) &&(plateau.obtenirValeurMatricePlateau(i+1, j-1) == car && plateau.obtenirValeurMatricePlateau(i+2, j-2) == car && plateau.obtenirValeurMatricePlateau(i+3, j-3) == car)
 						||
-					(plateau.obtenirValeurMatricePlateau(i+1, j+1) == car && plateau.obtenirValeurMatricePlateau(i+2, j+2) == car && plateau.obtenirValeurMatricePlateau(i+3, j+3) == car)
+					(plateau.obtenirValeurMatricePlateau(i, j) == car) &&(plateau.obtenirValeurMatricePlateau(i+1, j+1) == car && plateau.obtenirValeurMatricePlateau(i+2, j+2) == car && plateau.obtenirValeurMatricePlateau(i+3, j+3) == car)
 						||
-					(plateau.obtenirValeurMatricePlateau(i, j+1) == car && plateau.obtenirValeurMatricePlateau(i, j+2) == car && plateau.obtenirValeurMatricePlateau(i, j+3) == car)
+					(plateau.obtenirValeurMatricePlateau(i, j) == car) &&(plateau.obtenirValeurMatricePlateau(i, j+1) == car && plateau.obtenirValeurMatricePlateau(i, j+2) == car && plateau.obtenirValeurMatricePlateau(i, j+3) == car)
 						||
-					(plateau.obtenirValeurMatricePlateau(i-1, j+1) == car && plateau.obtenirValeurMatricePlateau(i-2, j+2) == car && plateau.obtenirValeurMatricePlateau(i-3, j+3) == car)
+					(plateau.obtenirValeurMatricePlateau(i, j) == car) &&(plateau.obtenirValeurMatricePlateau(i-1, j+1) == car && plateau.obtenirValeurMatricePlateau(i-2, j+2) == car && plateau.obtenirValeurMatricePlateau(i-3, j+3) == car)
 						||
-					(plateau.obtenirValeurMatricePlateau(i-1, j) == car && plateau.obtenirValeurMatricePlateau(i-2, j) == car && plateau.obtenirValeurMatricePlateau(i-3, j) == car)
+					(plateau.obtenirValeurMatricePlateau(i, j) == car) &&(plateau.obtenirValeurMatricePlateau(i-1, j) == car && plateau.obtenirValeurMatricePlateau(i-2, j) == car && plateau.obtenirValeurMatricePlateau(i-3, j) == car)
 						||
-					(plateau.obtenirValeurMatricePlateau(i-1, j-1) == car && plateau.obtenirValeurMatricePlateau(i-2, j-2) == car && plateau.obtenirValeurMatricePlateau(i-3, j-3) == car)) 
+					(plateau.obtenirValeurMatricePlateau(i, j) == car) &&(plateau.obtenirValeurMatricePlateau(i-1, j-1) == car && plateau.obtenirValeurMatricePlateau(i-2, j-2) == car && plateau.obtenirValeurMatricePlateau(i-3, j-3) == car)) 
 				{
 					return 1;
 				}
