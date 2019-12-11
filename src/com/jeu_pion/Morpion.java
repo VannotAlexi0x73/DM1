@@ -1,5 +1,10 @@
 package com.jeu_pion;
 
+/**
+ * Classe Abstraite Jeu
+ * @author : Remi B.
+ * @version : 1.0
+ */
 public class Morpion extends Jeu {
 	
 	private int taillePlateau;
@@ -7,7 +12,7 @@ public class Morpion extends Jeu {
 	private static final int MAX_PLATEAU = 5;
 
 	/**
-	 *
+	 * Constructeur qui fait appel à une autre méthode afin de créer le plateau de jeu du morpion
 	 */
 	public Morpion()
 	{
@@ -15,7 +20,7 @@ public class Morpion extends Jeu {
 	}
 
 	/**
-	 *
+	 * Permet de demander à l'utilisateur la taille du plateau de jeu qu'il desire avec une taille maximale MAX_PLATEAU
 	 */
 	@Override
 	public void initialisation()
@@ -37,8 +42,9 @@ public class Morpion extends Jeu {
 	}
 
 	/**
-	 *
-	 * @param joueur
+	 * Méthode qui permet de demander au joueur passé en paramètre de saisir des
+	 * coordonnées afin de modifier le plateau de jeu
+	 * @param joueur : joueur qui doit modifier le plateau de jeu
 	 */
 	@Override
 	public void jouer(Joueur joueur) 
@@ -53,9 +59,9 @@ public class Morpion extends Jeu {
 	}
 
 	/**
-	 *
-	 * @param joueur
-	 * @return
+	 * Cette méthode permet de vérifier si un joueur a gagné, perdu ou s'il y a égalité
+	 * @param joueur : joueur pour lequel on souhaite vérifier une victoire, défaite, égalité
+	 * @return 0 si le joueur doit "rejouer", 1 si victoire, 2 si egalité
 	 */
 	@Override
 	public int verification(Joueur joueur)
@@ -108,14 +114,20 @@ public class Morpion extends Jeu {
 	}
 
 
-	public boolean gestionPosition(String valeur, String caractere)
+	/**
+	 * Méthode qui modifie le plateau de jeu si les coordonnées du joueur sont correctes avec son caractère
+	 * @param valeur : les coordonnées du pion que le joueur souhaite insérer dans le plateau sous la forme /!\ X;Y /!\
+	 * @param caractere : le caractère du joueur qu'on va insérer dans le plateau
+	 * @return true si le joueur a bien modifié le plateau de jeu (ex: test si les coordonnées sont correctes) sinon false
+	 */
+	private boolean gestionPosition(String valeur, String caractere)
 	{
 		int x;
 		int y;
 		boolean res;
 		String [] pos = valeur.split(SEPARATEUR);
-		x = Integer.valueOf(pos[0]);
-		y = Integer.valueOf(pos[1]);
+		x = Integer.parseInt(pos[0]);
+		y = Integer.parseInt(pos[1]);
 		if((x >= 0 ) && (x < taillePlateau) && (y >= 0) && (y < taillePlateau))
 		{
 			if(plateau.obtenirValeurMatricePlateau(y, x) == null )
