@@ -4,7 +4,7 @@ abstract class Jeu {
 
 	protected Plateau plateau;
 	protected Joueur [] listeJoueurs;
-	protected Affichable affichable = new AffichageConsole();
+	protected static Affichable affichable = new AffichageConsole();
 
 	abstract void jouer (Joueur joueur);
 	abstract void gestionPosition ();
