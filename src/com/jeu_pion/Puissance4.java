@@ -37,6 +37,7 @@ public class Puissance4 extends Jeu {
 
 			}else if(plateau.obtenirValeurMatricePlateau(0,position) == null)&&(plateau.obtenirValeurMatricePlateau(1,position) != null){
 				plateau.modifierMatricePlateau(i, position, caractere);
+				return true;
 			}
 			else {
 				System.out.println( "la colonne est pleine");
