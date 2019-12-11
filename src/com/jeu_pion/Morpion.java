@@ -2,7 +2,7 @@ package com.jeu_pion;
 
 public class Morpion extends Jeu {
 	
-	private int taillePlateau;;
+	private int taillePlateau;
 	private static final String SEPARATEUR = ";";
 	private static final int MAX_PLATEAU = 5;
 
@@ -46,9 +46,8 @@ public class Morpion extends Jeu {
 		String positionPion;
 		String str;
 		do {
-			str = String.format("%n%s doit jouer.", joueur.getPrenom());
+			str = String.format("%n%n%s doit jouer. Placer votre pion (ex: 0;0) : ", joueur.getPrenom());
 			Jeu.affichable.affichageElement(str);
-			Jeu.affichable.affichageElement("\tPlace ton pion (ex: 0;0): ");
 			positionPion = scanner.next();
 		} while (!gestionPosition(positionPion, joueur.getCaractere()));
 	}
