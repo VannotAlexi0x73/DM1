@@ -1,84 +1,78 @@
 package com.jeu_pion;
 
-import java.util.Scanner;
+public class Morpion extends Jeu {
+	
+	private int taillePlateau;;
+	private static final String SEPARATEUR = ";";
+	private static final int MAX_PLATEAU = 5;
 
-public class Morpion {
-	
-	private  int taillePlateau;
-	Scanner scanner = new Scanner(System.in);
-	private  String nom1;
-	private String nom2;
-	private  String caractere1;
-	private  String caractere2;
-	private  String positionPion;
-	final static String SEPARATEUR = ";";
-	Plateau Plat;
-	
-	public void init() 
+	/**
+	 *
+	 */
+	public Morpion()
 	{
-		System.out.println("Entrez la taille du plateau (max 5)");
+		this.initialisation();
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public void initialisation()
+	{
+		String str;
+		str = String.format("Entrer la taille du plateau (max %d): ", MAX_PLATEAU);
+		Jeu.affichable.affichageElement(str);
 		do 
 		{
 			taillePlateau = scanner.nextInt();
-			if(taillePlateau >= 6) 
+			scanner.nextLine(); // Remise √† "z√©ro" du scanner
+			if((taillePlateau <= 0) || (taillePlateau > MAX_PLATEAU))
 			{
-				System.out.println("Erreur : entrez a nouveau la taille du plateau (max 5)");
+				str = String.format("Veuillez entrer une valeur entre 1 et %d: ", MAX_PLATEAU);
+				Jeu.affichable.affichageElement(str);
 			}
-		}
-		while(taillePlateau >= 6);
-		Plat = new Plateau(taillePlateau,taillePlateau);
-		System.out.println("Entrez le nom du premier joueur");
-		nom1 = scanner.next();
-		System.out.println("Entrez le symbole du premier joueur (ex : X)");
-		do 
-		{
-			caractere1 = scanner.next();
-			if(caractere1.length() > 1) 
-			{
-				System.out.println("Erreur : entrez ‡ nouveau le symbole du premier joueur (ex : X)");
-			}
-		}
-		while(caractere1.length() > 1);
-		System.out.println("Entrez le nom du second joueur");
-		nom2 = scanner.next();
-		System.out.println("Entrez le symbole du second joueur (ex : O)");
-		do 
-		{
-			caractere2 = scanner.next();
-			if(caractere2.length() > 1) 
-			{
-				System.out.println("Erreur : entrez ‡ nouveau le symbole du second joueur (ex : O)");
-			}
-		}
-		while(caractere2.length() > 1);
-		Joueur joueur1 = new Joueur (nom1,caractere1);
-		Joueur joueur2 = new Joueur (nom2,caractere2);
+		} while ((taillePlateau <= 0) || (taillePlateau > MAX_PLATEAU));
+		plateau = new Plateau(taillePlateau, taillePlateau);
 	}
-	
+
+	/**
+	 *
+	 * @param joueur
+	 */
+	@Override
 	public void jouer(Joueur joueur) 
 	{
-		
-		System.out.println( joueur.getPrenom() + " ‡ toi de jouer");
-		System.out.println("place ton pion (ex : 0;0)");
-		positionPion = scanner.next();
-		gestionPosition(positionPion,joueur.getCaractere());
-		if(verification1(joueur) == 1 ) 
-		{
-			System.out.println( joueur.getPrenom() + " ‡ gagner");
-		}
+		String positionPion;
+		String str;
+		do {
+			str = String.format("%n%s doit jouer.", joueur.getPrenom());
+			Jeu.affichable.affichageElement(str);
+			Jeu.affichable.affichageElement("\tPlace ton pion (ex: 0;0): ");
+			positionPion = scanner.next();
+		} while (!gestionPosition(positionPion, joueur.getCaractere()));
 	}
-	
-	public int verification1(Joueur joueur) 
+
+	/**
+	 *
+	 * @param joueur
+	 * @return
+	 */
+	@Override
+	public int verification(Joueur joueur)
 	{
-		int cpt = 0,cpt1 = 0,cpt2,cpt3;
+		int cpt = 0;
+		int cpt1 = 0;
+		int cpt2 = 0;
+		int cpt3 = 0;
 		
 		for (int i = 0; i < taillePlateau; i++) 
 		{
-			if(Plat.obtenirValeurMatricePlateau( i, i) == joueur.getCaractere()) 
+			if(plateau.obtenirValeurMatricePlateau( i, i) == joueur.getCaractere())
 			{
 				cpt++;
 			}
-			if(Plat.obtenirValeurMatricePlateau( i, taillePlateau - i) == joueur.getCaractere()) 
+			if(plateau.obtenirValeurMatricePlateau( i, taillePlateau - i) == joueur.getCaractere())
 			{
 				cpt1++;
 			}
@@ -86,11 +80,11 @@ public class Morpion {
 			cpt3 = 0;
 			for(int t = 0; t < taillePlateau; t++) 
 			{
-				if(Plat.obtenirValeurMatricePlateau( i, t) == joueur.getCaractere()) 
+				if(plateau.obtenirValeurMatricePlateau( i, t) == joueur.getCaractere())
 				{
 					cpt2++;
 				}
-				if(Plat.obtenirValeurMatricePlateau( t, i) == joueur.getCaractere()) 
+				if(plateau.obtenirValeurMatricePlateau( t, i) == joueur.getCaractere())
 				{
 					cpt3++;
 				}
@@ -104,33 +98,44 @@ public class Morpion {
 		{
 			return 1;
 		}
+		else if (plateau.isMatricePlateauComplete())
+		{
+			return 2;
+		}
 		else
 		{
 			return 0;
 		}
 	}
-	
-	public void gestionPosition(String valeur, String caractere) 
+
+
+	public boolean gestionPosition(String valeur, String caractere)
 	{
 		int x;
 		int y;
-		String pos[] = valeur.split(SEPARATEUR);
+		boolean res;
+		String [] pos = valeur.split(SEPARATEUR);
 		x = Integer.valueOf(pos[0]);
 		y = Integer.valueOf(pos[1]);
-		if((0 <= x ) && (x < taillePlateau) && (0 <= y ) && (y < taillePlateau)) {
-			if(Plat.obtenirValeurMatricePlateau( x, y) != null ) 
+		if((x >= 0 ) && (x < taillePlateau) && (y >= 0) && (y < taillePlateau))
+		{
+			if(plateau.obtenirValeurMatricePlateau(y, x) == null )
 			{
-				System.out.println("Erreur : la case est dÈj‡ prise");
+				plateau.modifierMatricePlateau(y, x, caractere);
+				res = true;
 			}
-			else 
+			else
 			{
-				Plat.modifierMatricePlateau( x, y, caractere);
+				Jeu.affichable.affichageElement("Cette case est d√©j√† prise");
+				res = false;
 			}
 		}
 		else 
 		{
-			System.out.println("Erreur : case n'existe pas");
+			Jeu.affichable.affichageElement("Cette case n'est pas dans le plateau");
+			res = false;
 		}
+		return res;
 	}
 }
 

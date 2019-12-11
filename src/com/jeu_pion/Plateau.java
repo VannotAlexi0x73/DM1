@@ -9,8 +9,8 @@ public class Plateau {
 
     /**
      * Permet de créer une matrice : String de taille [i][j]
-     * @param i : nombre de ligne de la matrice à créer
-     * @param j : nombre de colonne de la matrice à créer
+     * @param i : numero de la ligne de la matrice à créer
+     * @param j : numero de la colonne de la matrice à créer
      */
     public Plateau(int i, int j)
     {
