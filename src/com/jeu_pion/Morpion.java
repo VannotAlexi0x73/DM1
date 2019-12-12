@@ -89,7 +89,7 @@ public class Morpion extends Jeu {
 			{
 				cpt++;
 			}
-			if(plateau.obtenirValeurMatricePlateau( i, taillePlateau - i) == joueurCaract)
+			if(plateau.obtenirValeurMatricePlateau( i, (taillePlateau - 1) - i) == joueurCaract)
 			{
 				cpt1++;
 			}
