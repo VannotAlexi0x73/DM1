@@ -9,7 +9,6 @@ public class Joueur {
     private String prenom;
     private String caractere;
 
-
     /**
      * Permet de créer un joueur en renseignant directement son prénom et son caractère
      * @param prenom : prénom du joueur

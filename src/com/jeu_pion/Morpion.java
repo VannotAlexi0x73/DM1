@@ -2,7 +2,7 @@ package com.jeu_pion;
 
 /**
  * Classe Abstraite Jeu
- * @author : Remi B.
+ * @author : Remi B
  * @version : 1.0
  */
 public class Morpion extends Jeu {
@@ -19,8 +19,9 @@ public class Morpion extends Jeu {
 		this.initialisation();
 	}
 
+
 	/**
-	 * Permet de demander à l'utilisateur la taille du plateau de jeu qu'il desire avec une taille maximale MAX_PLATEAU
+	 * Permet de créer un plateau de jeu qu'il desire avec une taille maximale MAX_PLATEAU
 	 */
 	@Override
 	public void initialisation()
@@ -28,6 +29,7 @@ public class Morpion extends Jeu {
 		String str;
 		str = String.format("Entrer la taille du plateau (max %d): ", MAX_PLATEAU);
 		Jeu.affichable.affichageElement(str);
+		// Vérification que la taille du tableau est cohérente
 		do 
 		{
 			taillePlateau = scanner.nextInt();
@@ -41,6 +43,7 @@ public class Morpion extends Jeu {
 		plateau = new Plateau(taillePlateau, taillePlateau);
 	}
 
+
 	/**
 	 * Méthode qui permet de demander au joueur passé en paramètre de saisir des
 	 * coordonnées afin de modifier le plateau de jeu
@@ -52,11 +55,14 @@ public class Morpion extends Jeu {
 		String positionPion;
 		String str;
 		do {
-			str = String.format("%n%n%s doit jouer. Placer votre pion (ex: 0;0) : ", joueur.getPrenom());
+			// On demande au joueur de saisir des coordonnées pour qu'il place son pion
+			str = String.format("%n%n%s doit jouer. Placer votre pion (ex: 0;0 -> ligne;colonne) : ", joueur.getPrenom());
 			Jeu.affichable.affichageElement(str);
 			positionPion = scanner.next();
+			// On vérifie l'exactitude des coordonnées saisies et on place le pion
 		} while (!gestionPosition(positionPion, joueur.getCaractere()));
 	}
+
 
 	/**
 	 * Cette méthode permet de vérifier si un joueur a gagné, perdu ou s'il y a égalité
@@ -70,43 +76,54 @@ public class Morpion extends Jeu {
 		int cpt1 = 0;
 		int cpt2 = 0;
 		int cpt3 = 0;
-		
+
+		String joueurCaract = joueur.getCaractere();
+
+		// Boucle pour le nombre de lignes
 		for (int i = 0; i < taillePlateau; i++) 
 		{
-			if(plateau.obtenirValeurMatricePlateau( i, i) == joueur.getCaractere())
+			// Vérifications pour les diagonales
+			if(plateau.obtenirValeurMatricePlateau( i, i) == joueurCaract)
 			{
 				cpt++;
 			}
-			if(plateau.obtenirValeurMatricePlateau( i, taillePlateau - i) == joueur.getCaractere())
+			if(plateau.obtenirValeurMatricePlateau( i, taillePlateau - i) == joueurCaract)
 			{
 				cpt1++;
 			}
 			cpt2 = 0;
 			cpt3 = 0;
+			// Boucle pour le nombre colonnes
 			for(int t = 0; t < taillePlateau; t++) 
 			{
-				if(plateau.obtenirValeurMatricePlateau( i, t) == joueur.getCaractere())
+				// Vérifications sur les lignes et les colonnes
+				if(plateau.obtenirValeurMatricePlateau( i, t) == joueurCaract)
 				{
 					cpt2++;
 				}
-				if(plateau.obtenirValeurMatricePlateau( t, i) == joueur.getCaractere())
+				if(plateau.obtenirValeurMatricePlateau( t, i) == joueurCaract)
 				{
 					cpt3++;
 				}
 			}
+			// Vérification victoire sur lignes et colonnes
 			if(cpt2 == taillePlateau|| cpt3 == taillePlateau)
 			{
 				return 1;
 			}
 		}
+
+		// Vérification victoire sur diagonales
 		if(cpt == taillePlateau || cpt1 == taillePlateau)
 		{
 			return 1;
 		}
+		// Vérification égalité sur l'ensemble du plateau
 		else if (plateau.isMatricePlateauComplete())
 		{
 			return 2;
 		}
+		// Rejouer
 		else
 		{
 			return 0;
@@ -116,23 +133,26 @@ public class Morpion extends Jeu {
 
 	/**
 	 * Méthode qui modifie le plateau de jeu si les coordonnées du joueur sont correctes avec son caractère
-	 * @param valeur : les coordonnées du pion que le joueur souhaite insérer dans le plateau sous la forme /!\ X;Y /!\
+	 * @param coordonnees : les coordonnées du pion que le joueur souhaite insérer dans le plateau sous la forme /!\ X;Y /!\
 	 * @param caractere : le caractère du joueur qu'on va insérer dans le plateau
-	 * @return true si le joueur a bien modifié le plateau de jeu (ex: test si les coordonnées sont correctes) sinon false
+	 * @return true si le joueur a bien modifié le plateau de jeu sinon false
 	 */
-	private boolean gestionPosition(String valeur, String caractere)
+	private boolean gestionPosition(String coordonnees, String caractere)
 	{
 		int x;
 		int y;
 		boolean res;
-		String [] pos = valeur.split(SEPARATEUR);
+		// Séparation des coordonnées passées en paramètre -> (forme x;y)
+		String [] pos = coordonnees.split(SEPARATEUR);
 		x = Integer.parseInt(pos[0]);
 		y = Integer.parseInt(pos[1]);
-		if((x >= 0 ) && (x < taillePlateau) && (y >= 0) && (y < taillePlateau))
+		// Vérification que les coordonnées soient présentes dans le plateau
+		if ((x >= 0 ) && (x < taillePlateau) && (y >= 0) && (y < taillePlateau))
 		{
-			if(plateau.obtenirValeurMatricePlateau(y, x) == null )
+			// Vérification que la case correspondante aux coordonnées n'est pas déjà occupée
+			if (plateau.obtenirValeurMatricePlateau(x, y) == null )
 			{
-				plateau.modifierMatricePlateau(y, x, caractere);
+				plateau.modifierMatricePlateau(x, y, caractere);
 				res = true;
 			}
 			else

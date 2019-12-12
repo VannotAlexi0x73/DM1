@@ -11,7 +11,6 @@ public class Plateau {
     private int ligne;
     private int colonne;
 
-
     /**
      * Permet de créer une matrice : String de taille [i][j]
      * @param i : nombre de ligne de la matrice à créer

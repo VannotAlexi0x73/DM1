@@ -14,7 +14,6 @@ public class AffichageConsoleTest {
     private static String str;
     private static Affichable affichable = new AffichageConsole();
 
-
     @Before
     public void setUp() throws Exception {
         p = new Plateau(10, 10);

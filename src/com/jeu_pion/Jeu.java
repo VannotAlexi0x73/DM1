@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Classe Abstraite Jeu
- * @author : Alexis V
+ * @author : Alexis V, Mathys P
  * @version : 1.0
  */
 abstract class Jeu {
