@@ -16,26 +16,12 @@ public class JoueurTest {
     }
 
     @Test
-    public void setPrenom() {
-        j.setPrenom("Paul");
-        assertSame("Paul", j.getPrenom());
-    }
-
-    @Test
-    public void setCaractere() {
-        j.setCaractere("R");
-        assertSame("R", j.getCaractere());
-    }
-
-    @Test
     public void getPrenom() {
-        j.setPrenom("Patrick");
-        assertSame("Patrick", j.getPrenom());
+        assertSame("Alexis", j.getPrenom());
     }
 
     @Test
     public void getCaractere() {
-        j.setCaractere("J");
-        assertSame("J", j.getCaractere());
+        assertSame("X", j.getCaractere());
     }
 }

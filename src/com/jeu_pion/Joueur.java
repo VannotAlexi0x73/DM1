@@ -22,24 +22,6 @@ public class Joueur {
 
 
     /**
-     * Permet de changer le prénom du joueur passé en paramètre
-     * @param prenom : nouveau prénom du joueur
-     */
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-
-    /**
-     * Méthode qui enregistre le caractère que le Joueur a choisi pour ses "pions"
-     * @param caractere : caractère choisi par le Joueur
-     */
-    public void setCaractere(String caractere) {
-        this.caractere = caractere;
-    }
-
-
-    /**
      * Permet d'obtenir le prénom du Joueur
      * @return : prénom du joueur
      */
