@@ -36,7 +36,7 @@ public class Morpion extends Jeu {
 			scanner.nextLine(); // Remise à "zéro" du scanner
 			if((taillePlateau <= 0) || (taillePlateau > MAX_PLATEAU))
 			{
-				str = String.format("Veuillez entrer une valeur entre 1 et %d: ", MAX_PLATEAU - 1);
+				str = String.format("Veuillez entrer une valeur entre 1 et %d: ", MAX_PLATEAU);
 				Jeu.affichable.affichageElement(str);
 			}
 		} while ((taillePlateau <= 0) || (taillePlateau > MAX_PLATEAU));

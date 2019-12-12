@@ -41,7 +41,7 @@ public class Puissance4 extends Jeu {
         // Vérification que la colonne est cohérente
         do 
         {
-        	str = String.format("%n%n%s doit jouer. Choisi la colonne où lâcher la pièce (0 à %d) : ", joueur.getPrenom(), STANDARD_COLONNE);
+        	str = String.format("%n%n%s doit jouer. Choisi la colonne où lâcher la pièce (0 à %d) : ", joueur.getPrenom(), STANDARD_COLONNE - 1);
             Jeu.affichable.affichageElement(str);
             positionPion = scanner.nextInt();
 			// On vérifie l'exactitude de la colonne puis on place la pièce
