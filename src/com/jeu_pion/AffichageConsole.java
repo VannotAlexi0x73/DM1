@@ -27,65 +27,59 @@ public class AffichageConsole implements Affichable {
     public void affichagePlateau(Plateau plateau)
     {
         String displaySpaces = "\n   ";
-        String str;
+        StringBuilder str = new StringBuilder();
 
-        // Affichage première ligne
-        affichageElement(displaySpaces);
+        // On formatte première ligne
+        str.append(displaySpaces);
         for (int i = 0; i < plateau.getColonneMatricePlateau(); i++)
         {
             if (i % 5 == 0)
             {
-                str = String.format(" %d  ", i / 10);
-                affichageElement(str);
+                str.append(String.format(" %d  ", i / 10));
             }
             else {
-                affichageElement("    ");
+                str.append("    ");
             }
         }
 
-        // Affichage deuxième ligne
-        affichageElement(displaySpaces);
+        // On formatte la deuxième ligne
+        str.append(displaySpaces);
         for (int i = 0; i < plateau.getColonneMatricePlateau(); i++)
         {
-            str = String.format(" %d  ", i % 10);
-            affichageElement(str);
+            str.append(String.format(" %d  ", i % 10));
         }
 
-        // Affichage troisième ligne
-        affichageElement(displaySpaces);
-        for (int i = 0; i < plateau.getColonneMatricePlateau(); i++)
-        {
-            affichageElement("----");
-        }
-        affichageElement("\n");
+        // On formatte la troisième ligne
+        str.append(displaySpaces);
+        str.append("----".repeat(Math.max(0, plateau.getColonneMatricePlateau())));
+        str.append("\n");
 
 
-        // Affichage du tableau
+        // On formatte le tableau
         for (int i = 0; i < plateau.getLigneMatricePlateau(); i++)
         {
-            str = String.format("%2d|", i);
-            affichageElement(str);
+            str.append(String.format("%2d|", i));
             for (int j = 0; j < plateau.getColonneMatricePlateau(); j++)
             {
                 if (plateau.obtenirValeurMatricePlateau(i, j) != null)
                 {
-                    str = String.format(" %s ", plateau.obtenirValeurMatricePlateau(i, j));
-                    affichageElement(str);
+                    str.append(String.format(" %s ", plateau.obtenirValeurMatricePlateau(i, j)));
                 }
                 else
                 {
-                    affichageElement("   ");
+                    str.append("   ");
                 }
-                affichageElement("|");
+                str.append("|");
             }
-            affichageElement("\n");
+            str.append("\n");
         }
 
-        // Affichage de la dernière ligne
-        affichageElement("   ");
-        for (int i = 0; i < plateau.getColonneMatricePlateau(); i++)
-        {
-            affichageElement("----");
-        }
+        // On formatte la dernière ligne
+        str.append("   ");
+        str.append("----".repeat(Math.max(0, plateau.getColonneMatricePlateau())));
+
+
+        // Affichage du tableau
+        affichageElement(str.toString());
     }
 }

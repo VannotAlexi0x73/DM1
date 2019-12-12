@@ -36,19 +36,21 @@ public class Jouer {
 
         String caractere;
         String prenom;
-        String str;
+        StringBuilder str = new StringBuilder();
 
         do {
 
+            // On vide le buffer avant d'y ajouter des éléments
+            str.setLength(0);
+
             // Choix du jeu auquel l'utilisateur souhaite jouer
             do {
-                str = "";
                 for (int i = 0; i < listeJeux.length; i++)
                 {
-                    str += String.format("%d - %s%n", i+1, listeJeux[i]);
+                    str.append(String.format("%d - %s%n", i+1, listeJeux[i]));
                 }
-                str += "Veuillez saisir le numéro du jeu auquel vous voulez jouer : ";
-                Jeu.affichable.affichageElement(str);
+                str.append("Veuillez saisir le numéro du jeu auquel vous voulez jouer : ");
+                Jeu.affichable.affichageElement(str.toString());
                 choixJeu = scanner.nextInt();
                 scanner.nextLine();
             } while ((choixJeu > listeJeux.length) || (choixJeu <= 0));
@@ -84,25 +86,25 @@ public class Jouer {
 
             // Création des joueurs en demandant Prénom / Caractère
             for (int i = 0; i < jeu.listeJoueurs.length; i++) {
-                str = String.format("Veuillez saisir le prénom du joueur %d : ", i + 1);
-                Jeu.affichable.affichageElement(str);
+                Jeu.affichable.affichageElement(String.format("Veuillez saisir le prénom du joueur %d : ", i + 1));
                 prenom = scanner.nextLine();
 
                 do {
-                    str = String.format("Veuillez saisir le caractère du joueur %d (ex: X) : ", i + 1);
-                    Jeu.affichable.affichageElement(str);
+                    Jeu.affichable.affichageElement(String.format("Veuillez saisir le caractère du joueur %d (ex: X) : ", i + 1));
                     caractere = scanner.nextLine();
-                } while (listCaractere.contains(caractere)); // Vérification que les caractères ne sont pas présents 2 fois
+                } while ((caractere.length() != 1) || (listCaractere.contains(caractere))); // Vérification que les caractères ne sont pas présents 2 fois
                 listCaractere.add(caractere); // On ajoute le caractère à la liste des caractères des joueurs
                 jeu.listeJoueurs[i] = new Joueur(prenom, caractere);
             }
 
+            str.setLength(0);
+
             // Récupitulation des informations du jeu
-            str = String.format("%nVous allez jouer au %s avec %d joueurs. Les joueurs sont :%n", listeJeux[choixJeu - 1], jeu.listeJoueurs.length);
+            str.append(String.format("%nVous allez jouer au %s avec %d joueurs. Les joueurs sont :%n", listeJeux[choixJeu - 1], jeu.listeJoueurs.length));
             for (int i = 0; i < jeu.listeJoueurs.length; i++) {
-                str += String.format("- %s (%s)%n",jeu.listeJoueurs[i].getPrenom(), jeu.listeJoueurs[i].getCaractere());
+                str.append(String.format("- %s (%s)%n",jeu.listeJoueurs[i].getPrenom(), jeu.listeJoueurs[i].getCaractere()));
             }
-            Jeu.affichable.affichageElement(str);
+            Jeu.affichable.affichageElement(str.toString());
 
             Jeu.affichable.affichagePlateau(jeu.plateau);
 
@@ -115,8 +117,7 @@ public class Jouer {
                 // On vérifie le résultat de vérification et on break; la boucle
                 if (resultatVerification == 1)
                 {
-                    str = String.format("%n%n◊◊◊◊◊◊◊◊ Le joueur %s a gagné ! ◊◊◊◊◊◊◊◊", jeu.listeJoueurs[i].getPrenom());
-                    Jeu.affichable.affichageElement(str);
+                    Jeu.affichable.affichageElement(String.format("%n%n◊◊◊◊◊◊◊◊ Le joueur %s a gagné ! ◊◊◊◊◊◊◊◊", jeu.listeJoueurs[i].getPrenom()));
                     break;
                 }
                 else if (resultatVerification == 2)
@@ -126,8 +127,7 @@ public class Jouer {
                 }
                 else if (resultatVerification == 3)
                 {
-                    str = String.format("%n%n†††††††† Le joueur %s a perdu ! ††††††††", jeu.listeJoueurs[i].getPrenom());
-                    Jeu.affichable.affichageElement(str);
+                    Jeu.affichable.affichageElement(String.format("%n%n†††††††† Le joueur %s a perdu ! ††††††††", jeu.listeJoueurs[i].getPrenom()));
                     break;
                 }
                 // Quand on arrive à la fin de la liste des joueurs on repart au début

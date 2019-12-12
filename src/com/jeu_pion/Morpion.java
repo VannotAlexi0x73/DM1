@@ -7,7 +7,6 @@ package com.jeu_pion;
  */
 public class Morpion extends Jeu {
 	
-	private int taillePlateau;
 	private static final String SEPARATEUR = ";";
 	private static final int MAX_PLATEAU = 5;
 
@@ -26,6 +25,7 @@ public class Morpion extends Jeu {
 	@Override
 	public void initialisation()
 	{
+		int taillePlateau;
 		String str;
 		str = String.format("Entrer la taille du plateau (max %d): ", MAX_PLATEAU);
 		Jeu.affichable.affichageElement(str);
@@ -72,15 +72,17 @@ public class Morpion extends Jeu {
 	@Override
 	public int verification(Joueur joueur)
 	{
+		// Colonne ou ligne, il s'agit d'un plateau carré
+		int taillePlateau = plateau.getColonneMatricePlateau();
 		int cpt = 0;
 		int cpt1 = 0;
-		int cpt2 = 0;
-		int cpt3 = 0;
+		int cpt2;
+		int cpt3;
 
 		String joueurCaract = joueur.getCaractere();
 
 		// Boucle pour le nombre de lignes
-		for (int i = 0; i < taillePlateau; i++) 
+		for (int i = 0; i < taillePlateau; i++)
 		{
 			// Vérifications pour les diagonales
 			if(plateau.obtenirValeurMatricePlateau( i, i) == joueurCaract)
@@ -94,7 +96,7 @@ public class Morpion extends Jeu {
 			cpt2 = 0;
 			cpt3 = 0;
 			// Boucle pour le nombre colonnes
-			for(int t = 0; t < taillePlateau; t++) 
+			for(int t = 0; t < taillePlateau; t++)
 			{
 				// Vérifications sur les lignes et les colonnes
 				if(plateau.obtenirValeurMatricePlateau( i, t) == joueurCaract)
@@ -147,7 +149,7 @@ public class Morpion extends Jeu {
 		x = Integer.parseInt(pos[0]);
 		y = Integer.parseInt(pos[1]);
 		// Vérification que les coordonnées soient présentes dans le plateau
-		if ((x >= 0 ) && (x < taillePlateau) && (y >= 0) && (y < taillePlateau))
+		if ((x >= 0 ) && (x < plateau.getLigneMatricePlateau()) && (y >= 0) && (y < plateau.getColonneMatricePlateau()))
 		{
 			// Vérification que la case correspondante aux coordonnées n'est pas déjà occupée
 			if (plateau.obtenirValeurMatricePlateau(x, y) == null )
