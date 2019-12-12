@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Classe Jouer -> moteur de jeu du projet avec le main()
+ * Classe Jouer - moteur de jeu du projet avec le main()
  * @author : Alexis V.
  * @version : 1.0
  */
@@ -13,8 +13,9 @@ public class Jouer {
     /**
      * Le main est le moteur de Jeu qui permet à l'utilisateur de chosir le jeu auquel il veut jouer, il permet aussi
      * de définir les joueurs (Prénom, caractère choisi) et la taille du plateau
-     * Il doit être agrémenté par les futurs jeux, notamment pour la liste des jeux -> String [] listeJeux
-     * et pour la création du jeu -> switch (choixJeu) l.52
+     * Il doit être agrémenté par les futurs jeux, notamment pour la liste des jeux - String [] listeJeux
+     * et pour la création du jeu - switch (choixJeu) l.52
+     * @param args valeur passé dans la console, non utile ici
      */
     public static void main (String[] args) {
         // A compléter avec le nom des futurs jeux possibles
