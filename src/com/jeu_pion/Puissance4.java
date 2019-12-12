@@ -7,6 +7,10 @@ package com.jeu_pion;
  */
 public class Puissance4 extends Jeu {
 
+	private final static int STANDARD_LIGNE = 6;
+	private final static int STANDARD_COLONNE= 7;
+
+
 	/**
 	 * Constructeur qui fait appel à une autre méthode afin de créer le plateau de jeu du puissance 4
 	 */
@@ -17,11 +21,11 @@ public class Puissance4 extends Jeu {
 
 
 	/**
-	 * Création d'un plateau de jeu pour le puissance 4 de taille standard 6 x 7
+	 * Création d'un plateau de jeu pour le puissance 4 de taille standard STANDARD_LIGNE x STANDARD_COLONNE
 	 */
 	@Override
 	public void initialisation() {
-		plateau = new Plateau(6, 7);
+		plateau = new Plateau(STANDARD_LIGNE, STANDARD_COLONNE);
 	}
 
 
