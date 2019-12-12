@@ -57,7 +57,7 @@ public class Plateau {
      */
     public String obtenirValeurMatricePlateau(int i, int j)
     {
-        if ((i >= 0) && (j >= 0) && (i < this.colonne) && (j < this.ligne))
+        if ((i >= 0) && (j >= 0) && (i < this.ligne) && (j < this.colonne))
         {
             return this.matrice[i][j];
         }

@@ -61,7 +61,7 @@ public class Jouer {
                     jeu = new Morpion();
                     break;
                 case 2:
-//                    jeu = new Puissance4();
+                    jeu = new Puissance4();
                     break;
                 default:
                     break;
