@@ -21,7 +21,13 @@ abstract class Jeu {
 	abstract void initialisation ();
 
 
+	/**
+	 * Méthode qui permet de demander au joueur passé en paramètre de saisir des
+	 * coordonnées afin de jouer sur le plateau de jeu
+	 * @param joueur : joueur qui doit jouer sur le plateau
+	 */
 	abstract void jouer (Joueur joueur);
+
 
 	/**
 	 * Cette méthode doit permettre de vérifier si un joueur a gagné, perdu ou s'il y a égalité

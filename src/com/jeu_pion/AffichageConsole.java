@@ -18,7 +18,7 @@ public class AffichageConsole implements Affichable {
 
 
     /**
-     * Permet d'afficher la matrice sous forme de pseudo tableau dans la console
+     * Permet d'afficher le plateau sous forme de pseudo tableau dans la console
      * La première et deuxième ligne correspondent aux numéros des colonnes
      * Les premiers chiffres de chaque lignes correspondent aux numéros des lignes
      * @param plateau : plateau de jeu
