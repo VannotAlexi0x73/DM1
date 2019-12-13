@@ -7,8 +7,8 @@ package com.jeu_pion;
  */
 public class Puissance4 extends Jeu {
 
-	private final static int STANDARD_LIGNE = 6;
-	private final static int STANDARD_COLONNE= 7;
+	private static final int STANDARD_LIGNE = 6;
+	private static final int STANDARD_COLONNE = 7;
 
 
 	/**
