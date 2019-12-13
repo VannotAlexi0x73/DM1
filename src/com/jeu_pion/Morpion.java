@@ -1,7 +1,7 @@
 package com.jeu_pion;
 
 /**
- * Classe Abstraite Jeu
+ * Classe Morpion fille de Jeu
  * @author : Remi B
  * @version : 1.0
  */

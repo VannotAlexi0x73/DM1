@@ -1,7 +1,7 @@
 package com.jeu_pion;
 
 /**
- * Classe Abstraite Jeu
+ * Classe Puissance4 fille de Jeu
  * @author : Remi B, Valentin D
  * @version : 1.0
  */
